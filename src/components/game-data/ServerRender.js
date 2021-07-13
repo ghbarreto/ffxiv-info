@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import Form from '../Form';
 
-const ServerInput = props => {
+const ServerRender = ({ listOfDatacenters }) => {
   const [datacenter, setDatacenter] = useState('');
 
   const displayServers = () => {
@@ -8,9 +9,9 @@ const ServerInput = props => {
     if (!datacenter) return null;
 
     // returning the list of servers based on the comparison to datacenter
-    for (let i in props.listOfDatacenters) {
+    for (let i in listOfDatacenters) {
       if (datacenter === i) {
-        return props.listOfDatacenters[i].map(item => {
+        return listOfDatacenters[i].map(item => {
           return (
             <option key={item} value={item}>
               {item}
@@ -21,13 +22,21 @@ const ServerInput = props => {
     }
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    console.log(e.target);
-  };
+  {
+    /* <Form
+        formSelectLabel="Datacenters"
+        formSelectPlaceholder="Datacenters"
+        options={datacenter}
+      /> */
+  }
 
-  const onChange = e => {
-    console.log(e.target);
+  const displayDatacenters = () => {
+    let option = [{ key: String, text: String, value: String }];
+
+    Object.keys(listOfDatacenters).map(datacenter => {
+      console.log(datacenter);
+    });
+    console.log(option);
   };
 
   useEffect(() => {
@@ -36,23 +45,19 @@ const ServerInput = props => {
 
   const display = () => {
     return (
-      <select onChange={e => setDatacenter(e.target.value)}>
-        {props.display}
-      </select>
+      <select onChange={e => setDatacenter(e.target.value)}>{display}</select>
     );
   };
 
   return (
-    <form onSubmit={e => handleSubmit(e)}>
+    <form>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <label>Character Name</label>
-        <input name="character" onChange={e => onChange(e)} />
-        {display()}
         {datacenter ? <select>{displayServers()}</select> : null}
         <input type="submit" value="Submit" />
+        {displayDatacenters()}
       </div>
     </form>
   );
 };
 
-export default ServerInput;
+export default ServerRender;
