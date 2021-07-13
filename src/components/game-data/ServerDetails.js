@@ -2,6 +2,7 @@ import React from 'react';
 import ServerInput from './ServerInput';
 
 const ServerDetails = ({ datacenters }) => {
+  // display the datacenters of final fantasy xiv
   const displayDatacenters = () => {
     return Object.keys(datacenters).map(datacenter => {
       return (
@@ -12,24 +13,12 @@ const ServerDetails = ({ datacenters }) => {
     });
   };
 
-  const displayServers = datacenter => {
-    Object.keys(datacenters).map(a =>
-      a === datacenter ? Object.values(b => console.log(b)) : null
-    );
-    return Object.values(datacenter).map(servers => {
-      return (
-        <option key={servers} value={servers}>
-          {servers}
-        </option>
-      );
-    });
-  };
-
+  // server input will render the form with the desired server
   return (
     <div>
       <ServerInput
         display={displayDatacenters()}
-        displayServers={displayServers}
+        listOfDatacenters={datacenters}
       />
     </div>
   );

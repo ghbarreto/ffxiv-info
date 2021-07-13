@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { useEffect, useState } from 'react';
 import { fetchDatacenter } from '../../actions';
 import ServerDetails from './ServerDetails';
@@ -17,7 +16,6 @@ const Servers = props => {
     request();
   });
 
-  console.log(datacenters);
   return datacenters ? (
     <div>
       <ServerDetails datacenters={datacenters} />
