@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { useEffect, useState } from 'react';
 import { fetchDatacenter } from '../../actions';
 import ServerDetails from './ServerDetails';
 
