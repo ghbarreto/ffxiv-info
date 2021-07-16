@@ -1,14 +1,19 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import Header from './HeaderExport';
 import Servers from './game-data/Servers';
+import CharacterInfo from './character-search/CharacterInfo';
 
 const App = () => {
   return (
-    <div>
+    <Router>
       <Header />
-      <Servers />
-    </div>
+      <Route path="/characters" exact>
+        <Servers />
+      </Route>
+      <Route path="/characters/:id" exact component={CharacterInfo} />
+    </Router>
   );
 };
 

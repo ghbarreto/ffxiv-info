@@ -1,24 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 
 import { fetchCharacter } from '../../actions';
+import CharacterDisplay from './CharacterDisplay';
 
 const CharacterIndex = props => {
-  const [character, setCharacter] = useState([]);
+  const dispatch = useDispatch();
+  const [character, setCharacter] = useState();
 
   const request = async () => {
-    const response = await fetchCharacter(props.name);
-    if (response) console.log(response.data);
-    response();
+    const response = await dispatch(
+      fetchCharacter(props.name, props.serverName)
+    );
+    return response;
   };
 
   useEffect(() => {
-    request();
-  }, [props.name]);
+    const timer = setTimeout(() => {
+      const { characterDetails } = props.characterDetails;
+      request();
+      if (characterDetails.fetch)
+        return setCharacter(characterDetails.fetch.Results);
+    }, 200);
+    return () => clearTimeout(timer);
+  }, [props.name, props.serverName]);
 
+  console.log(character);
   return (
-    <div>
-      {props.name}, {props.serverName}
+    <div className="container">
+      {!character ? null : <CharacterDisplay character={character} />}
     </div>
   );
 };
@@ -29,4 +39,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, fetchCharacter)(CharacterIndex);
+export default connect(mapStateToProps, { fetchCharacter })(CharacterIndex);

@@ -1,11 +1,21 @@
 import ffxiv from '../apis/ffxiv';
-import { FETCH_CHARACTER, FETCH_DATACENTER } from './types';
+import { FETCH_CHARACTER, FETCH_INFO, FETCH_DATACENTER } from './types';
 
 // Character Data
-export const fetchCharacter = name => async dispatch => {
-  const response = await ffxiv.get(`/character/search?name=${name}`);
+export const fetchCharacter = (name, server) => async dispatch => {
+  if (!name && !server) return null;
+  const response = await ffxiv.get(
+    `/character/search?name=${name}&server=${server}`
+  );
 
-  return dispatch({ type: FETCH_CHARACTER, payload: response.data });
+  dispatch({ type: FETCH_CHARACTER, payload: response.data });
+};
+
+//? fetch character information
+export const fetchCharacterInfo = id => async dispatch => {
+  const response = await ffxiv.get(`/character/${id}`);
+
+  dispatch({ type: FETCH_INFO, payload: response.data });
 };
 
 // Game Data
