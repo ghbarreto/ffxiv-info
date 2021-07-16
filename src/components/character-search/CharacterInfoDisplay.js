@@ -12,7 +12,7 @@ const CharacterInfoDisplay = ({ info }) => {
           <Segment>1</Segment>
         </Grid.Column>
         <Grid.Column>
-          <Segment>122</Segment>
+          <Segment>1</Segment>
           <Segment>2</Segment>
         </Grid.Column>
         <Grid.Column>
