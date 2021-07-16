@@ -7,7 +7,7 @@ const ServerRender = ({ listOfDatacenters }) => {
   const [datacenter, setDatacenter] = useState('');
   const [server, setServers] = useState({});
   const [serverName, setServerChoice] = useState('');
-  const [characterName, setCharacterName] = useState('');
+  const [characterName, setCharacterName] = useState('Rena');
 
   const displayServers = () => {
     // in case datacenter doesnt exist returns null
@@ -36,11 +36,12 @@ const ServerRender = ({ listOfDatacenters }) => {
     return setServerChoice(e);
   };
 
-  const displayCharacterData = () => {
-    return characterName ? (
-      <CharacterIndex name={characterName} serverName={serverName} />
-    ) : null;
-  };
+  // const displayCharacterData = () => {
+  //   console.log(characterName);
+  //   return characterName ? (
+
+  //   ) : null;
+  // };
 
   return (
     <form>
@@ -57,7 +58,8 @@ const ServerRender = ({ listOfDatacenters }) => {
           serverChoice={serverChoice}
         />
       </div>
-      {displayCharacterData()}
+      {console.log(characterName)}
+      <CharacterIndex name={characterName} serverName={serverName} />
     </form>
   );
 };

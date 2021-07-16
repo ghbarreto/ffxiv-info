@@ -18,7 +18,7 @@ const FormComponent = ({
   };
 
   const serverBackToParent = e => {
-    return serverChoice(e.target.innerText);
+    return serverChoice(e.target.value);
   };
 
   const serversAvailable = () => {

@@ -3,29 +3,29 @@ import { connect } from 'react-redux';
 
 import { fetchCharacter } from '../../actions';
 
-const CharacterIndex = ({ name, serverName, characterData }) => {
+const CharacterIndex = props => {
   const [character, setCharacter] = useState([]);
 
   const request = async () => {
-    const response = await fetchCharacter(name, serverName);
-    console.log(characterData);
-    if (response) return setCharacter(response);
+    const response = await fetchCharacter(props.name);
+    if (response) console.log(response.data);
+    response();
   };
-  console.log(character);
+
   useEffect(() => {
     request();
-  }, [name, serverName]);
+  }, [props.name]);
 
   return (
     <div>
-      {name}, {serverName}
+      {props.name}, {props.serverName}
     </div>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    characterData: state,
+    characterDetails: state,
   };
 };
 

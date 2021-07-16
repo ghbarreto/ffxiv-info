@@ -1,6 +1,4 @@
-import {
-  FETCH_DATACENTER,
-} from "../actions/types";
+import { FETCH_DATACENTER } from '../actions/types';
 
 export default function datacenterReducer(state = [], action) {
   switch (action.type) {

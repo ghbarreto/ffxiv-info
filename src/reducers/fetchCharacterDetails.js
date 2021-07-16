@@ -1,6 +1,4 @@
-import {
-  FETCH_CHARACTER,
-} from "../actions/types";
+import { FETCH_CHARACTER } from '../actions/types';
 
 export default function characterReducer(state = [], action) {
   switch (action.type) {
