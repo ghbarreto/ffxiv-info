@@ -16,12 +16,14 @@ const CharacterIndex = props => {
   };
 
   useEffect(() => {
+    // timer
     const timer = setTimeout(() => {
       const { characterDetails } = props.characterDetails;
       request();
       if (characterDetails.fetch)
         return setCharacter(characterDetails.fetch.Results);
     }, 200);
+
     return () => clearTimeout(timer);
   }, [props.name, props.serverName]);
 
