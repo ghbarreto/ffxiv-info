@@ -1,7 +1,7 @@
 import React from 'react';
 import './CharacterProfile.css';
+import { classJobs } from '../../resources/classJobs';
 
-import { cityIds } from '../../resources/cityIds';
 import CharacterTitle from './CharacterTitle';
 
 const CharacterProfile = ({
@@ -13,6 +13,7 @@ const CharacterProfile = ({
   profileAvatar,
   profileTitle,
   profileTown,
+  activeClass,
 }) => {
   return (
     <div className="flex-box">
@@ -35,6 +36,32 @@ const CharacterProfile = ({
         <div className="datacenter">
           {server} - {datacenter}
         </div>
+        {activeClass.UnlockedState.ID ? (
+          <div>
+            <img
+              className="classImageProfile"
+              alt={activeClass.UnlockedState.Name}
+              src={classJobs(activeClass.UnlockedState.ID)}
+            />
+            <div className="level">
+              {activeClass.Level} - {activeClass.UnlockedState.Name}
+            </div>
+          </div>
+        ) : (
+          <div>
+            <img
+              className="classImageProfile"
+              alt={activeClass.Name}
+              src={classJobs(activeClass.ClassID)}
+            />
+            <div className="level">
+              {activeClass.Level} -{' '}
+              {activeClass.Name.substring(
+                activeClass.Name.lastIndexOf('/') + 1
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

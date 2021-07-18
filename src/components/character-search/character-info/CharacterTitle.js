@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 
 import { fetchTitle } from '../../../actions';
 
 const CharacterTitle = ({ title, propsTitle }) => {
   const dispatch = useDispatch();
-  const [retrievedTitle, setTitle] = useState('');
-  console.log(propsTitle);
+
   const request = () => {
     if (title) {
       const response = dispatch(fetchTitle(title));

@@ -4,6 +4,7 @@ import {
   FETCH_INFO,
   FETCH_DATACENTER,
   FETCH_TITLE,
+  FETCH_ITEMS,
 } from './types';
 
 // Character Data
@@ -33,4 +34,10 @@ export const fetchTitle = title => async dispatch => {
   const response = await ffxiv.get(`/title/${title}`);
 
   dispatch({ type: FETCH_TITLE, payload: response.data });
+};
+
+export const items = item => async dispatch => {
+  const response = await ffxiv.get(`/item/${item}`);
+
+  dispatch({ type: FETCH_ITEMS, payload: response.data });
 };

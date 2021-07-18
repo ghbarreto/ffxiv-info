@@ -1,11 +1,17 @@
 div.ui.divided.three.column.grid{
-  height: 700px
+  height: 700px;
 }
 
 div.three.wide.column{
   height: 500px;
 }
 
+.ui.segment{
+  background-color: rgba(255, 255, 255, 0.123);
+  height: 230px;
+  
+}
+
 div.ui.divided{
-  margin-left: 40px
+  margin-left: 10px
 }

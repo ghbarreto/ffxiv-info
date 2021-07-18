@@ -1,4 +1,4 @@
-import { FETCH_DATACENTER, FETCH_TITLE } from '../actions/types';
+import { FETCH_DATACENTER, FETCH_TITLE, FETCH_ITEMS } from '../actions/types';
 
 export default function datacenterReducer(state = [], action) {
   switch (action.type) {
@@ -6,6 +6,9 @@ export default function datacenterReducer(state = [], action) {
       return { ...state, datacenters: action.payload };
     case FETCH_TITLE:
       return { ...state, title: action.payload };
+    case FETCH_ITEMS:
+      const { Name, IconHD } = action.payload;
+      return { ...state, items: { ...state.items, [Name]: IconHD } };
     default:
       return state;
   }

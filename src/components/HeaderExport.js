@@ -10,9 +10,10 @@ const HeaderExport = () => {
     setActiveItem(name);
   };
   return (
-    <Menu pointing>
+    <Menu pointing style={{ backgroundColor: 'rgb(241, 182, 18)' }}>
       <Link to="/">
         <Menu.Item
+          style={{ color: 'white', outline: 'black' }}
           name="home"
           active={activeItem === 'home'}
           content="Home"
@@ -21,6 +22,7 @@ const HeaderExport = () => {
       </Link>
       <Link to="/characters">
         <Menu.Item
+          style={{ color: 'white', outline: 'black' }}
           name="messages"
           active={activeItem === 'messages'}
           content="Character Search"
@@ -28,6 +30,7 @@ const HeaderExport = () => {
         />
       </Link>
       <Menu.Item
+        style={{ color: 'white', outline: 'black' }}
         name="friends"
         active={activeItem === 'friends'}
         content="Friends"

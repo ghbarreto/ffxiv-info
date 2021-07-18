@@ -6,15 +6,16 @@ import './CharacterInfoDisplay.css';
 import CharacterPortrait from './character-info/CharacterPortrait';
 import CharacterProfile from './character-info/CharacterProfile';
 import CharacterClasses from './character-info/CharacterClasses';
+import CharacterGear from './character-info/CharacterGear';
 import Spinner from '../Spinner';
 
 const CharacterInfoDisplay = ({ info }) => {
   if (info) {
     const { Character } = info;
-    console.log(Character);
+    // console.log(Character);
     return (
       <Grid columns={3} divided>
-        <Grid.Row stretched>
+        <Grid.Row divided stretched>
           <Grid.Column width={5}>
             <CharacterProfile
               profileName={Character.Name}
@@ -26,16 +27,19 @@ const CharacterInfoDisplay = ({ info }) => {
               profileTitle={Character.Title}
               profileTown={Character.Town}
               profileServer={Character.Server}
+              activeClass={Character.ActiveClassJob}
             />
             <CharacterPortrait
               portrait={Character.Portrait}
             ></CharacterPortrait>
           </Grid.Column>
           <Grid.Column>
+            <Segment style={{ overflow: 'none' }}>
+              <CharacterGear gear={Character.GearSet.Gear} />
+            </Segment>
             <Segment>
               <CharacterClasses classes={Character.ClassJobs} />
             </Segment>
-            <Segment>2</Segment>
           </Grid.Column>
           <Grid.Column>
             <Segment>1</Segment>
