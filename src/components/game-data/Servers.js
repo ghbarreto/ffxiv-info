@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { fetchDatacenter } from '../../actions';
 import ServerDetails from './ServerDetails';
+import Spinner from '../Spinner';
 
 const Servers = props => {
   const [datacenters, setDatacenters] = useState([]);
@@ -20,7 +21,7 @@ const Servers = props => {
       <ServerDetails datacenters={datacenters} />
     </div>
   ) : (
-    <div>Loading</div>
+    <Spinner loading="Fetching Data" />
   );
 };
 

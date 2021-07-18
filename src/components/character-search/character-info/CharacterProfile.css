@@ -1,0 +1,52 @@
+.flex-box{
+  display: flex;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background-color: rgb(38, 115, 216);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.left-flex{
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.right-flex{
+  margin-top: 30px;
+}
+
+.profile-name{
+  font-weight: bold;
+  color:white;
+  font-size: 25px;
+  margin-left: 20px;
+  margin-top: -10px;
+  position: absolute;
+}
+
+.free-company{
+  margin-top: 55px;
+  color:white;
+  margin-left: 20px;
+  font-size: 15px;
+}
+
+.profile-title{
+  position: absolute;
+  margin-top: 5px;
+  color: rgb(241, 182, 18);
+  font-size: 20px;
+  margin-left: 20px;
+  margin-top: 15px;
+}
+
+.datacenter{
+  color:white;
+  font-size: 15px;
+  margin-left: 20px
+}
+/* .profile-town{
+  font-size: 10px;
+  margin-left: 15px;
+} */

@@ -4,33 +4,31 @@ import { connect, useDispatch } from 'react-redux';
 import { fetchCharacter } from '../../actions';
 import CharacterDisplay from './CharacterDisplay';
 
-const CharacterIndex = props => {
+const CharacterIndex = ({ name, serverName, characterDetails }) => {
   const dispatch = useDispatch();
-  const [character, setCharacter] = useState();
+  const [character, setCharacter] = useState([]);
+  // const characterDetails = fetchCharacters;
 
-  const request = async () => {
-    const response = await dispatch(
-      fetchCharacter(props.name, props.serverName)
-    );
+  const request = () => {
+    const response = dispatch(fetchCharacter(name, serverName));
     return response;
   };
 
   useEffect(() => {
     // timer
     const timer = setTimeout(() => {
-      const { characterDetails } = props.characterDetails;
       request();
-      if (characterDetails.fetch)
-        return setCharacter(characterDetails.fetch.Results);
-    }, 200);
-
+    }, 600);
     return () => clearTimeout(timer);
-  }, [props.name, props.serverName]);
+  }, [name, serverName]);
 
-  console.log(character);
+  if (!character) {
+    return <div></div>;
+  }
+
   return (
-    <div className="container">
-      {!character ? null : <CharacterDisplay character={character} />}
+    <div className="container" style={{ marginTop: '30px' }}>
+      <CharacterDisplay name={name} />
     </div>
   );
 };

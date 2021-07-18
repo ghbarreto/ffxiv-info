@@ -1,7 +1,82 @@
-import React from 'react';
-
-const ClassJobs = ({ classJobs }) => {
-  return <div>Class Jobs</div>;
+export const classJobs = id => {
+  switch (id) {
+    case 1:
+      return '/assets/images/gladiator.png';
+    case 2:
+      return '/assets/images/pugilist.png';
+    case 3:
+      return '/assets/images/marauder.png';
+    case 4:
+      return '/assets/images/lancer.png';
+    case 5:
+      return '/assets/images/archer.png';
+    case 6:
+      return '/assets/images/conjurer.png';
+    case 7:
+      return '/assets/images/thaumaturge.png';
+    case 8:
+      return '/assets/images/carpenter.png';
+    case 9:
+      return '/assets/images/blacksmith.png';
+    case 10:
+      return '/assets/images/armorer.png';
+    case 11:
+      return '/assets/images/goldsmith.png';
+    case 12:
+      return '/assets/images/leatherworker.png';
+    case 13:
+      return '/assets/images/weaver.png';
+    case 14:
+      return '/assets/images/alchemist.png';
+    case 15:
+      return '/assets/images/culinarian.png';
+    case 16:
+      return '/assets/images/miner.png';
+    case 17:
+      return '/assets/images/botanist.png';
+    case 18:
+      return '/assets/images/fisher.png';
+    case 19:
+      return '/assets/images/paladin.png';
+    case 20:
+      return '/assets/images/monk.png';
+    case 21:
+      return '/assets/images/warrior.png';
+    case 22:
+      return '/assets/images/dragoon.png';
+    case 23:
+      return '/assets/images/bard.png';
+    case 24:
+      return '/assets/images/whitemage.png';
+    case 25:
+      return '/assets/images/blackmage.png';
+    case 26:
+      return '/assets/images/arcanist.png';
+    case 27:
+      return '/assets/images/summoner.png';
+    case 28:
+      return '/assets/images/scholar.png';
+    case 29:
+      return '/assets/images/rogue.png';
+    case 30:
+      return '/assets/images/ninja.png';
+    case 31:
+      return '/assets/images/machinist.png';
+    case 32:
+      return '/assets/images/darkknight.png';
+    case 33:
+      return '/assets/images/astrologian.png';
+    case 34:
+      return '/assets/images/samurai.png';
+    case 35:
+      return '/assets/images/redmage.png';
+    case 36:
+      return '/assets/images/bluemage.png';
+    case 37:
+      return '/assets/images/gunbreaker.png';
+    case 38:
+      return '/assets/images/dancer.png';
+    default:
+      return null;
+  }
 };
-
-export default ClassJobs;
