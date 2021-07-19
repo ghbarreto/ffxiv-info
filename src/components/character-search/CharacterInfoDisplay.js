@@ -34,17 +34,17 @@ const CharacterInfoDisplay = ({ info }) => {
             ></CharacterPortrait>
           </Grid.Column>
           <Grid.Column>
-            <Segment style={{ overflow: 'none' }}>
-              <CharacterGear gear={Character.GearSet.Gear} />
-            </Segment>
-            <Segment>
+            <Segment>Profile</Segment>
+            <Segment style={{ overflow: 'auto' }}>
+              Classes
               <CharacterClasses classes={Character.ClassJobs} />
             </Segment>
           </Grid.Column>
           <Grid.Column>
-            <Segment>1</Segment>
-            <Segment>2</Segment>
-            <Segment>3</Segment>
+            <Segment style={{ overflow: 'auto', height: '80vh' }}>
+              Gears
+              <CharacterGear gear={Character.GearSet.Gear} />
+            </Segment>
           </Grid.Column>
         </Grid.Row>
       </Grid>
