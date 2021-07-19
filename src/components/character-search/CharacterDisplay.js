@@ -44,7 +44,7 @@ const CharacterDisplay = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     characterDetails: state,
   };

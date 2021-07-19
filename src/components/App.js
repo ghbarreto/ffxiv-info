@@ -6,6 +6,10 @@ import Header from './HeaderExport';
 import Servers from './game-data/Servers';
 import CharacterInfo from './character-search/CharacterInfo';
 
+// cinza azulado - rgb(17, 35, 51)
+// azul tema - rgb(38, 115, 216)
+// highlight - rgb(241, 182, 18)
+
 const App = () => {
   return (
     <Router>

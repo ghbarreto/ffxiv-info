@@ -3,8 +3,6 @@ import GetCharacterGear from './GetCharacterGear';
 import { connect, useDispatch } from 'react-redux';
 
 const CharacterGear = ({ gear, fetchedItems }) => {
-  console.log(fetchedItems);
-
   const display = () => {
     return Object.entries(fetchedItems).map(([k, v]) => {
       return (

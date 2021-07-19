@@ -7,6 +7,7 @@ import CharacterPortrait from './character-info/CharacterPortrait';
 import CharacterProfile from './character-info/CharacterProfile';
 import CharacterClasses from './character-info/CharacterClasses';
 import CharacterGear from './character-info/CharacterGear';
+import EurekaAndBozjan from '../game-data/EurekaAndBozjan';
 import Spinner from '../Spinner';
 
 const CharacterInfoDisplay = ({ info }) => {
@@ -34,7 +35,12 @@ const CharacterInfoDisplay = ({ info }) => {
             ></CharacterPortrait>
           </Grid.Column>
           <Grid.Column>
-            <Segment>Profile</Segment>
+            <Segment>
+              <EurekaAndBozjan
+                bozjan={Character.ClassJobsBozjan}
+                eureka={Character.ClassJobsElemental}
+              />
+            </Segment>
             <Segment style={{ overflow: 'auto' }}>
               Classes
               <CharacterClasses classes={Character.ClassJobs} />
