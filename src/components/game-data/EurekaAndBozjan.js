@@ -1,16 +1,23 @@
 import React from 'react';
-import { Segment } from 'semantic-ui-react';
 import './EurekaAndBozjan.css';
 
 const EurekaAndBozjan = ({ character, bozjan, eureka }) => {
-  console.log(bozjan);
+  function display(name, level, exp) {
+    return (
+      <>
+        <h4>{name}</h4>
+        <div>Level: {level}</div>
+        <div>Exp: {exp}</div>
+      </>
+    );
+  }
   return (
     <div className="first">
-      <div>
-        <img alt="icon" />
-        {/* {name} */}
-        <div></div>
-        <div></div>
+      <div className="bozjan">
+        {display(bozjan.Name, bozjan.Level, bozjan.Mettle)}
+      </div>
+      <div className="eureka">
+        {display(eureka.Name, eureka.Level, eureka.ExpLevel)}
       </div>
     </div>
   );

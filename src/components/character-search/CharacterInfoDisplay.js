@@ -8,6 +8,7 @@ import CharacterProfile from './character-info/CharacterProfile';
 import CharacterClasses from './character-info/CharacterClasses';
 import CharacterGear from './character-info/CharacterGear';
 import EurekaAndBozjan from '../game-data/EurekaAndBozjan';
+import CharacterDetailedInfo from './character-info/CharacterDetailedInfo';
 import Spinner from '../Spinner';
 
 const CharacterInfoDisplay = ({ info }) => {
@@ -36,10 +37,8 @@ const CharacterInfoDisplay = ({ info }) => {
           </Grid.Column>
           <Grid.Column>
             <Segment>
-              <EurekaAndBozjan
-                bozjan={Character.ClassJobsBozjan}
-                eureka={Character.ClassJobsElemental}
-              />
+              Detailed Info
+              <CharacterDetailedInfo character={Character} />
             </Segment>
             <Segment style={{ overflow: 'auto' }}>
               Classes
@@ -50,6 +49,13 @@ const CharacterInfoDisplay = ({ info }) => {
             <Segment style={{ overflow: 'auto', height: '80vh' }}>
               Gears
               <CharacterGear gear={Character.GearSet.Gear} />
+            </Segment>
+            <Segment className="eureka-bozjan">
+              Instances
+              <EurekaAndBozjan
+                bozjan={Character.ClassJobsBozjan}
+                eureka={Character.ClassJobsElemental}
+              />
             </Segment>
           </Grid.Column>
         </Grid.Row>

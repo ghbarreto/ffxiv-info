@@ -8,7 +8,7 @@ const CharacterGear = ({ gear, fetchedItems }) => {
       return (
         <div className="border-items" style={{ margin: '4px' }} key={k}>
           <img className="item-image" src={`https://xivapi.com/${v}`} alt={k} />
-          <div class="gear-name">{k}</div>
+          <div className="gear-name">{k}</div>
         </div>
       );
     });

@@ -35,14 +35,6 @@ const ServerRender = ({ listOfDatacenters }) => {
     return setServerChoice(e);
   };
 
-
-  // const displayCharacterData = () => {
-  //   console.log(characterName);
-  //   return characterName ? (
-
-  //   ) : null;
-  // };
-
   return (
     <form>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
