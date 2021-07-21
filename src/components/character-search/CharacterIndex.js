@@ -1,15 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 
 import { fetchCharacter } from '../../actions';
 import CharacterDisplay from './CharacterDisplay';
+import Servers from '../game-data/Servers';
 
-const CharacterIndex = ({ name, serverName, characterDetails }) => {
+const CharacterIndex = () => {
   const dispatch = useDispatch();
   // const characterDetails = fetchCharacters;
+  const [name, setName] = useState('');
+  const [server, setServer] = useState('');
 
   const request = () => {
-    const response = dispatch(fetchCharacter(name, serverName));
+    const response = dispatch(fetchCharacter(name, server));
     return response;
   };
 
@@ -19,10 +22,19 @@ const CharacterIndex = ({ name, serverName, characterDetails }) => {
       request();
     }, 600);
     return () => clearTimeout(timer);
-  }, [name, serverName]);
+  }, [name, server]);
+
+  const inputValue = e => {
+    setName(e);
+  };
+
+  const serverChoice = e => {
+    setServer(e);
+  };
 
   return (
     <div className="container" style={{ marginTop: '30px' }}>
+      <Servers inputValue={inputValue} serverChoice={serverChoice} />
       <CharacterDisplay name={name} />
     </div>
   );

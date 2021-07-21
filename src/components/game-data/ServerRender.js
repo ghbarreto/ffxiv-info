@@ -1,13 +1,23 @@
 import React, { useState, useEffect } from 'react';
+import { Form } from 'semantic-ui-react';
 
-import Form from '../Form';
-import CharacterIndex from '../character-search/CharacterIndex';
+const ServerRender = ({
+  listOfDatacenters,
 
-const ServerRender = ({ listOfDatacenters }) => {
+  inputLabel,
+  inputPlaceholder,
+  formSelectLabel,
+  formSelectPlaceholder,
+  serverLabel,
+  serverPlaceholder,
+  inputValue,
+  serverChoice,
+  // servers,
+  // serverChoice
+  // inputValue
+}) => {
   const [datacenter, setDatacenter] = useState('');
-  const [server, setServers] = useState({});
-  const [serverName, setServerChoice] = useState('');
-  const [characterName, setCharacterName] = useState('');
+  const [servers, setServers] = useState({});
 
   const displayServers = () => {
     // in case datacenter doesnt exist returns null
@@ -15,43 +25,66 @@ const ServerRender = ({ listOfDatacenters }) => {
     // returning the list of servers based on the comparison to datacenter
     for (let i in listOfDatacenters) {
       if (datacenter === i) {
-        setServers(listOfDatacenters[i]);
+        return setServers(listOfDatacenters[i]);
       }
-      <Form servers={server} />;
     }
+    return null;
   };
 
   useEffect(() => {
     displayServers();
   }, [datacenter]);
 
-  const getDatacenter = e => {
-    return setDatacenter(e);
+  const dataBackToParent = e => {
+    setDatacenter(e.target.innerText);
   };
-  const inputValue = e => {
-    return setCharacterName(e);
-  };
-  const serverChoice = e => {
-    return setServerChoice(e);
+
+  const serversAvailable = () => {
+    if (servers.length > 1) {
+      return (
+        <Form.Select
+          fluid
+          label={serverLabel}
+          placeholder={serverPlaceholder}
+          onChange={e => serverChoice(e.target.innerText)}
+          options={Object.values(servers).map(server => {
+            return {
+              key: server,
+              text: server,
+              value: server,
+            };
+          })}
+        ></Form.Select>
+      );
+    }
+    return null;
   };
 
   return (
-    <form>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <Form
-          inputLabel="Character Name"
-          inputPlaceholder="Character Name"
-          formSelectLabel="Datacenter"
-          formSelectPlaceholder="Choose a datacenter"
-          datacenters={listOfDatacenters}
-          getDatacenter={getDatacenter}
-          servers={server}
-          inputValue={inputValue}
-          serverChoice={serverChoice}
+    <Form className="container">
+      <Form.Group widths="equal">
+        <Form.Input
+          fluid
+          label={inputLabel}
+          placeholder={inputPlaceholder}
+          onChange={e => inputValue(e.target.value)}
         />
-      </div>
-      <CharacterIndex name={characterName} serverName={serverName} />
-    </form>
+        <Form.Select
+          fluid
+          label={formSelectLabel}
+          onChange={e => dataBackToParent(e)}
+          options={Object.keys(listOfDatacenters).map(datacenters => {
+            return {
+              key: datacenters,
+              text: datacenters,
+              value: datacenters,
+            };
+          })}
+          placeholder={formSelectPlaceholder}
+        />
+        {serversAvailable()}
+      </Form.Group>
+    </Form>
   );
 };
 

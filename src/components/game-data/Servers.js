@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { fetchDatacenter } from '../../actions';
-import ServerDetails from './ServerDetails';
+import ServerRender from './ServerRender';
 import Spinner from '../Spinner';
 
 const Servers = props => {
-  const [datacenters, setDatacenters] = useState([]);
+  const [datacenters, setDatacenters] = useState('');
 
   const request = async () => {
     const response = await fetchDatacenter();
@@ -18,7 +18,11 @@ const Servers = props => {
 
   return datacenters ? (
     <div>
-      <ServerDetails datacenters={datacenters} />
+      <ServerRender
+        inputValue={props.inputValue}
+        listOfDatacenters={datacenters}
+        serverChoice={props.serverChoice}
+      />
     </div>
   ) : (
     <Spinner loading="Fetching Data" />

@@ -1,6 +1,6 @@
 import React from 'react';
 import GetCharacterGear from './GetCharacterGear';
-import { connect, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
 const CharacterGear = ({ gear, fetchedItems }) => {
   const display = () => {

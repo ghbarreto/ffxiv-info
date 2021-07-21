@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 
 const CharacterDisplay = props => {
   const { characterDetails } = props.characterDetails;
-  console.log(props);
   const display = () => {
     if (characterDetails.fetchCharacters) {
       return characterDetails.fetchCharacters.Results.map(e => {
@@ -44,7 +43,7 @@ const CharacterDisplay = props => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     characterDetails: state,
   };
