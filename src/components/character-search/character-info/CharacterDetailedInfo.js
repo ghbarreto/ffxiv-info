@@ -18,8 +18,7 @@ const CharacterDetailedInfo = ({ character }) => {
       <div>{cityIds(character.Town)}</div>
       <div>
         <div>
-          {races(character.Race)}{' '}
-          <img src={gender(character.Gender)} alt="gender" />
+          {races(character.Race)} {gender(character.Gender)}
         </div>
         <div>{character.Nameday}</div>
 

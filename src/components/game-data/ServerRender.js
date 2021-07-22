@@ -3,7 +3,7 @@ import { Form } from 'semantic-ui-react';
 
 const ServerRender = ({
   listOfDatacenters,
-
+  databaseChoice,
   inputLabel,
   inputPlaceholder,
   formSelectLabel,
@@ -34,6 +34,7 @@ const ServerRender = ({
 
   const dataBackToParent = e => {
     setDatacenter(e.target.innerText);
+    databaseChoice(e.target.innerText);
   };
 
   const serversAvailable = () => {

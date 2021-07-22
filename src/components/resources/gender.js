@@ -1,9 +1,9 @@
 export const gender = ids => {
   switch (ids) {
     case 1:
-      return '/assets/images/male.png';
+      return <i class="venus icon"></i>;
     case 2:
-      return '/assets/images/female.png';
+      return <i class="venus icon"></i>;
     default:
       return null;
   }
