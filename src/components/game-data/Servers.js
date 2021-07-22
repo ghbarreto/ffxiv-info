@@ -16,12 +16,19 @@ const Servers = props => {
     request();
   });
 
+  console.log(props);
   return datacenters ? (
     <div>
       <ServerRender
         inputValue={props.inputValue}
         listOfDatacenters={datacenters}
         serverChoice={props.serverChoice}
+        inputLabel={props.inputLabel}
+        inputPlaceholder={props.inputPlaceholder}
+        formSelectLabel={props.formSelectLabel}
+        formSelectPlaceholder={props.formSelectPlaceholder}
+        serverLabel={props.serverLabel}
+        serverPlaceholder={props.serverPlaceholder}
       />
     </div>
   ) : (

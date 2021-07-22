@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu } from 'semantic-ui-react';
 import { useState } from 'react';
-import { BrowserRouter as Router, Switch, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const HeaderExport = () => {
   const [activeItem, setActiveItem] = useState('');
@@ -29,13 +29,15 @@ const HeaderExport = () => {
           onClick={handleItemClick}
         />
       </Link>
-      <Menu.Item
-        style={{ color: 'white', outline: 'black' }}
-        name="friends"
-        active={activeItem === 'friends'}
-        content="Friends"
-        onClick={handleItemClick}
-      />
+      <Link to="/marketboard">
+        <Menu.Item
+          style={{ color: 'white', outline: 'black' }}
+          name="Marketboard"
+          active={activeItem === 'Marketboard'}
+          content="Marketboard"
+          onClick={handleItemClick}
+        />
+      </Link>
     </Menu>
   );
 };

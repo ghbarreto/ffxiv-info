@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 
-import { fetchCharacter } from '../../actions';
-import CharacterDisplay from './CharacterDisplay';
+import { fetch_marketable_items } from '../../actions';
 import Servers from '../game-data/Servers';
 
-const CharacterIndex = () => {
-  const dispatch = useDispatch();
-  // const characterDetails = fetchCharacters;
+const MarketBoardIndex = props => {
   const [name, setName] = useState('');
   const [server, setServer] = useState('');
 
+  const dispatch = useDispatch();
+  // const characterDetails = fetchCharacters;
   const request = () => {
-    const response = dispatch(fetchCharacter(name, server));
+    const response = dispatch(fetch_marketable_items());
     return response;
   };
 
+  console.log(props);
   useEffect(() => {
     // timer
     const timer = setTimeout(() => {
@@ -31,28 +31,28 @@ const CharacterIndex = () => {
   const serverChoice = e => {
     setServer(e);
   };
-
   return (
-    <div className="container" style={{ marginTop: '30px' }}>
+    <div>
       <Servers
         inputValue={inputValue}
         serverChoice={serverChoice}
-        inputLabel={'Character Name'}
-        inputPlaceholder={'Character Name'}
+        inputLabel={'Market Board Search'}
+        inputPlaceholder={'Search Item'}
         formSelectLabel={'Select a Database'}
         formSelectPlaceholder={'Database'}
         serverLabel={'Select a Server'}
         serverPlaceholder={'Server'}
       />
-      <CharacterDisplay name={name} />
     </div>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    characterDetails: state,
+    marketboard: state,
   };
 };
 
-export default connect(mapStateToProps, { fetchCharacter })(CharacterIndex);
+export default connect(mapStateToProps, { fetch_marketable_items })(
+  MarketBoardIndex
+);

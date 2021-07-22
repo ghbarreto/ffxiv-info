@@ -12,9 +12,6 @@ const ServerRender = ({
   serverPlaceholder,
   inputValue,
   serverChoice,
-  // servers,
-  // serverChoice
-  // inputValue
 }) => {
   const [datacenter, setDatacenter] = useState('');
   const [servers, setServers] = useState({});
@@ -61,7 +58,7 @@ const ServerRender = ({
   };
 
   return (
-    <Form className="container">
+    <Form inverted className="container">
       <Form.Group widths="equal">
         <Form.Input
           fluid
