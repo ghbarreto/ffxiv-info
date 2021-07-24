@@ -56,7 +56,7 @@ const MarketBoardIndex = props => {
       {marketable_items ? (
         <DisplayMarketBoardItems items={marketable_items.Results} />
       ) : (
-        <SmallSpinner loading={'Fetching items'} />
+        <SmallSpinner loading={'Fetching items.'} />
       )}
     </div>
   );
