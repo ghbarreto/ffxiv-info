@@ -6,6 +6,7 @@ import Header from './HeaderExport';
 import CharacterIndex from './character-search/CharacterIndex';
 import CharacterInfo from './character-search/CharacterInfo';
 import MarketBoardIndex from './marketboard/MarketBoardIndex';
+import MarketBoardFetchItems from './marketboard/MarketBoardFetchItems';
 
 // cinza azulado - rgb(17, 35, 51)
 // azul tema - rgb(38, 115, 216)
@@ -15,9 +16,13 @@ const App = () => {
   return (
     <Router>
       <Header />
-      <Route path="/characters" exact component={CharacterIndex}></Route>
+      <Route path="/characters" exact component={CharacterIndex} />
       <Route path="/characters/:id" exact component={CharacterInfo} />
       <Route path="/marketboard" exact component={MarketBoardIndex} />
+      <Route
+        path="/fetch/:id/:server/:database"
+        component={MarketBoardFetchItems}
+      />
     </Router>
   );
 };

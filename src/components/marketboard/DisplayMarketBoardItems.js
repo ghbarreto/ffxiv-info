@@ -2,9 +2,7 @@ import React from 'react';
 import { Header, Image, Table, Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-const DisplayMarketBoardItems = ({ items }) => {
-  console.log(typeof items);
-
+const DisplayMarketBoardItems = ({ items, server_choice, database_choice }) => {
   const displayItems = () => {
     return Object.values(items).map(item => {
       return (
@@ -18,7 +16,7 @@ const DisplayMarketBoardItems = ({ items }) => {
             </Header>
           </Table.Cell>
           <Table.Cell>
-            <Link to={`/marketboard/${item.ID}`}>
+            <Link to={`/fetch/${item.ID}${server_choice}${database_choice}`}>
               <Button float="" icon labelPosition="left" secondary size="small">
                 <Icon name="arrow right" /> Select
               </Button>

@@ -12,6 +12,9 @@ const MarketBoardIndex = props => {
   const [database, setDatabase] = useState('');
   const { marketable_items } = props.marketboard.gameData;
 
+  const database_choice = database ? `/${database}` : '/null';
+  const server_choice = server ? `/${server}` : '/null';
+
   const dispatch = useDispatch();
   // const characterDetails = fetchCharacters;
   const request = () => {
@@ -54,9 +57,13 @@ const MarketBoardIndex = props => {
       />
 
       {marketable_items ? (
-        <DisplayMarketBoardItems items={marketable_items.Results} />
+        <DisplayMarketBoardItems
+          database_choice={database_choice}
+          server_choice={server_choice}
+          items={marketable_items.Results}
+        />
       ) : (
-        <SmallSpinner loading={'Fetching items.'} />
+        <SmallSpinner loading={'Fetching items'} />
       )}
     </div>
   );
