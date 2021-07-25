@@ -1,23 +1,65 @@
-import React from 'react';
-import { Image, Item } from 'semantic-ui-react';
+import React, { useEffect } from 'react';
+import { connect, useDispatch } from 'react-redux';
+import { Item } from 'semantic-ui-react';
 
-const DisplaySearchedItem = ({ item_info, searched_item }) => {
-  const icon = `https://xivapi.com${item_info.Icon}`;
-  console.log(searched_item);
-  console.log(item_info);
-  return (
-    <Item.Group style={{ backgroundColor: 'grey' }}>
-      <Item>
-        <Item.Image size="tiny" src={icon} />
+import { fetchItemInfo } from '../../actions';
+import Spinner from '../Spinner';
+import DisplayListings from './DisplayListings';
 
-        <Item.Content>
-          <Item.Header as="a">{item_info.Name}</Item.Header>
-          <Item.Meta>Description</Item.Meta>
-          <Item.Extra>Additional Details</Item.Extra>
-        </Item.Content>
-      </Item>
-    </Item.Group>
-  );
+const DisplaySearchedItem = ({
+  item_info,
+  searched_item,
+  item_information,
+}) => {
+  const dispatch = useDispatch();
+
+  const request = () => {
+    const response = dispatch(fetchItemInfo(item_info.ID));
+    return response;
+  };
+
+  useEffect(() => {
+    request();
+  }, [item_info.ID]);
+  console.log(item_information);
+  if (item_information.gameData.itemInformation) {
+    return (
+      <div>
+        <Item.Group
+          style={{
+            backgroundColor: 'lightgrey',
+          }}
+        >
+          <Item>
+            <Item.Image
+              size="tiny"
+              src={`https://xivapi.com${item_information.gameData.itemInformation.IconHD}`}
+            />
+            <Item.Content>
+              <Item.Header as="a">
+                {item_information.gameData.itemInformation.Name}
+              </Item.Header>
+              <Item.Meta>
+                {item_information.gameData.itemInformation.Description}
+              </Item.Meta>
+              <Item.Extra>
+                {item_information.gameData.itemInformation.ItemUICategory.Name}
+              </Item.Extra>
+            </Item.Content>
+          </Item>
+        </Item.Group>
+
+        <DisplayListings data={item_information.marketboard.marketboard} />
+      </div>
+    );
+  }
+  return <Spinner loading="Fetching Item" />;
 };
 
-export default DisplaySearchedItem;
+const mapStateToProps = state => {
+  return {
+    item_information: state,
+  };
+};
+
+export default connect(mapStateToProps, { fetchItemInfo })(DisplaySearchedItem);

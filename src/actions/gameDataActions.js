@@ -4,6 +4,7 @@ import {
   FETCH_TITLE,
   FETCH_ITEMS,
   FETCH_MARKETABLE_ITEMS,
+  FETCH_ITEM_INFO,
 } from './types';
 
 export const fetchDatacenter = () => async dispatch => {
@@ -22,6 +23,12 @@ export const items = item => async dispatch => {
   const response = await ffxiv.get(`/item/${item}`);
 
   dispatch({ type: FETCH_ITEMS, payload: response.data });
+};
+
+export const fetchItemInfo = item => async dispatch => {
+  const response = await ffxiv.get(`/item/${item}`);
+
+  dispatch({ type: FETCH_ITEM_INFO, payload: response.data });
 };
 
 export const fetch_marketable_items = item => async dispatch => {

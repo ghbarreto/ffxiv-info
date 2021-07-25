@@ -3,6 +3,7 @@ import {
   FETCH_TITLE,
   FETCH_ITEMS,
   FETCH_MARKETABLE_ITEMS,
+  FETCH_ITEM_INFO,
 } from '../actions/types';
 
 export default function datacenterReducer(state = [], action) {
@@ -16,6 +17,8 @@ export default function datacenterReducer(state = [], action) {
       return { ...state, items: { ...state.items, [Name]: IconHD } };
     case FETCH_MARKETABLE_ITEMS:
       return { ...state, marketable_items: action.payload };
+    case FETCH_ITEM_INFO:
+      return { ...state, itemInformation: action.payload };
     default:
       return state;
   }
