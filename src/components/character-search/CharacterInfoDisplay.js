@@ -37,21 +37,21 @@ const CharacterInfoDisplay = ({ info }) => {
           </Grid.Column>
           <Grid.Column>
             <Segment>
-              Detailed Info
+              <div className="title-character-info left-side">Profile Info</div>
               <CharacterDetailedInfo character={Character} />
             </Segment>
             <Segment style={{ overflow: 'auto' }}>
-              Classes
+              <div className="title-character-info left-side">Classes</div>
               <CharacterClasses classes={Character.ClassJobs} />
             </Segment>
           </Grid.Column>
           <Grid.Column>
             <Segment style={{ overflow: 'auto', height: '80vh' }}>
-              Gears
+              <div className="title-character-info">Gears</div>
               <CharacterGear gear={Character.GearSet.Gear} />
             </Segment>
             <Segment className="eureka-bozjan">
-              Instances
+              <div className="title-character-info">Instances</div>
               <EurekaAndBozjan
                 bozjan={Character.ClassJobsBozjan}
                 eureka={Character.ClassJobsElemental}

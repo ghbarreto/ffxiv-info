@@ -23,7 +23,6 @@ const CharacterClasses = ({ classes }) => {
       >
         {displayClasses(classes, FIRST_CLASS)}
       </div>
-
       <div
         style={{
           display: 'flex',
@@ -34,7 +33,6 @@ const CharacterClasses = ({ classes }) => {
       >
         {displayUnlockedClasses(classes, UNLOCKED_STATE)}
       </div>
-
       <div
         style={{
           display: 'flex',
@@ -45,7 +43,6 @@ const CharacterClasses = ({ classes }) => {
       >
         {displayClasses(classes, LAST_JOBS)}
       </div>
-
       <div
         style={{
           display: 'flex',

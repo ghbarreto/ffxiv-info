@@ -22,6 +22,8 @@ const MarketBoardIndex = props => {
     return response;
   };
 
+  // console.log(all_marketable_items);
+
   useEffect(() => {
     // timer
     const timer = setTimeout(() => {

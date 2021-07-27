@@ -1,6 +1,5 @@
 .border-items{
   display: flex;
-  border: 1px solid rgb(241, 182, 18);
   width: '50%';
 }
 
@@ -12,6 +11,5 @@
 }
 
 .gear-name{
-  color: 'rgb(241, 182, 18)';
   width: 100%;
 }

@@ -13,21 +13,19 @@ const CharacterGear = ({ gear, fetchedItems }) => {
       );
     });
   };
+
+  const getItems = () => {
+    return Object.keys(gear).map(equip => {
+      return Object.values(gear).map(id => {
+        return <GetCharacterGear equip={id.ID} />;
+      });
+    });
+  };
+
   return (
     <div>
-      <div style={{ color: 'white' }}>
-        <GetCharacterGear weapon={gear.MainHand.ID || null} />
-        <GetCharacterGear head={gear.Head.ID || null} />
-        <GetCharacterGear body={gear.Body.ID || null} />
-        <GetCharacterGear hands={gear.Hands.ID || null} />
-        <GetCharacterGear waist={gear.Waist.ID || null} />
-        <GetCharacterGear legs={gear.Legs.ID || null} />
-        <GetCharacterGear feet={gear.Feet.ID || null} />
-        <GetCharacterGear earrings={gear.Earrings.ID || null} />
-        <GetCharacterGear necklace={gear.Necklace.ID || null} />
-        <GetCharacterGear bracelets={gear.Bracelets.ID || null} />
-        <GetCharacterGear bracelets={gear.Ring1.ID || null} />
-        <GetCharacterGear bracelets={gear.Ring2.ID || null} />
+      <div style={{ color: 'rgb(241, 182, 18)' }}>
+        {getItems()}
         {fetchedItems && display()}
       </div>
     </div>

@@ -1,54 +1,111 @@
+import NumberFormat from 'react-number-format';
 import React from 'react';
-import { Header, Image, Table } from 'semantic-ui-react';
+import { Header, Table } from 'semantic-ui-react';
+import { cityIds } from '../resources/cityIds';
+import { worlds } from '../resources/worlds';
 
 const DisplayListings = ({ data }) => {
-  console.log(data.data);
-
   const getMinPrice = () => {
     if (data.data) {
       return Object.values(data.data.listings)
-        .slice(0, 10)
+        .slice(0, 50)
         .map(e => {
           return (
             // <div>
-            <Table.Cell>{Math.min(e.pricePerUnit)}</Table.Cell>
+            <Table.Row>
+              <Table.Cell>
+                <Header as="h3">
+                  <Header.Content style={{ color: 'gold' }}>
+                    {e.retainerName}
+                    <Header.Subheader>
+                      {cityIds(e.retainerCity)}
+                    </Header.Subheader>
+                  </Header.Content>
+                </Header>
+              </Table.Cell>
+              <Table.Cell>
+                $
+                <NumberFormat
+                  value={Math.min(e.pricePerUnit)}
+                  thousandSeparator={true}
+                  displayType={'text'}
+                />
+              </Table.Cell>
+              <Table.Cell>{e.quantity}</Table.Cell>
+              <Table.Cell>
+                $
+                <NumberFormat
+                  value={e.total}
+                  thousandSeparator={true}
+                  displayType={'text'}
+                />
+              </Table.Cell>
+              {e.worldName ? <Table.Cell>{e.worldName}</Table.Cell> : null}
+            </Table.Row>
+
             // </div>
           );
         });
     }
     return null;
-    // console.log(typeof data.data.listings);
+  };
+  const verifyColumn = () => {
+    if (data.data) {
+      for (let i in data.data.listings) {
+        if (data.data.listings[i].worldName) {
+          return <Table.HeaderCell>Cheapest World</Table.HeaderCell>;
+        }
+      }
+      return null;
+    }
   };
 
   return (
     <div>
-      <h1>{data.data.dcName}</h1>
-      <Table celled collapsing>
+      <div
+        style={{
+          color: ' rgb(38, 115, 216)',
+          backgroundColor: ' rgb(241, 182, 18)',
+          height: '50px',
+          width: '50%',
+          margin: '0 auto',
+          borderRadius: '5px',
+          marginBottom: '-7px',
+        }}
+      >
+        <h1
+          style={{
+            marginTop: '-20px',
+            textAlign: 'center',
+            marginLeft: '10px',
+          }}
+        >
+          {data.data.dcName || worlds(data.data.worldID)}
+        </h1>
+      </div>
+
+      <Table
+        celled
+        striped
+        collapsing
+        inverted
+        color={'violet'}
+        size="large"
+        padded={true}
+        style={{ margin: '0 auto', width: '80%' }}
+      >
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell>Employee</Table.HeaderCell>
-            <Table.HeaderCell>Correct Guesses</Table.HeaderCell>
+            <Table.HeaderCell>Retainer Name</Table.HeaderCell>
+            <Table.HeaderCell>Cheapest per unit</Table.HeaderCell>
+            <Table.HeaderCell>Quantity</Table.HeaderCell>
+            <Table.HeaderCell>Total</Table.HeaderCell>
+            {verifyColumn()}
           </Table.Row>
         </Table.Header>
+        {getMinPrice()}
 
-        <Table.Body>
-          <Table.Row>
-            <Table.Cell>
-              <Header as="h4" image>
-                <Image
-                  src="https://react.semantic-ui.com/images/avatar/small/lena.png"
-                  rounded
-                  size="mini"
-                />
-                <Header.Content>
-                  Lena
-                  <Header.Subheader>Human Resources</Header.Subheader>
-                </Header.Content>
-              </Header>
-            </Table.Cell>
-            <Table.Cell>{getMinPrice()}</Table.Cell>
-          </Table.Row>
-        </Table.Body>
+        <Table.Body></Table.Body>
       </Table>
     </div>
   );

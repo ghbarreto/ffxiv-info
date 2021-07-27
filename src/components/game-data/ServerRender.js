@@ -34,7 +34,9 @@ const ServerRender = ({
 
   const dataBackToParent = e => {
     setDatacenter(e.target.innerText);
-    databaseChoice(e.target.innerText);
+    if (databaseChoice) {
+      databaseChoice(e.target.innerText);
+    }
   };
 
   const serversAvailable = () => {

@@ -1,0 +1,19 @@
+div.ui.items.marketboard-item{
+  /* background-color: rgba(247, 240, 149, 0.986); */
+  border-radius: 5px;
+  width: 50%;
+  height: 23vh;
+  margin-left: 25%;
+}
+
+.ui.items>.item{
+  display: inline-block;
+  text-align: center;
+  margin: 10px;
+}
+
+div.ui.tiny.image.marketboard-image{
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}

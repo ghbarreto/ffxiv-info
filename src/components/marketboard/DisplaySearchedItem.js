@@ -5,12 +5,9 @@ import { Item } from 'semantic-ui-react';
 import { fetchItemInfo } from '../../actions';
 import Spinner from '../Spinner';
 import DisplayListings from './DisplayListings';
+import './DisplaySearchedItem.css';
 
-const DisplaySearchedItem = ({
-  item_info,
-  searched_item,
-  item_information,
-}) => {
+const DisplaySearchedItem = ({ item_info, item_information }) => {
   const dispatch = useDispatch();
 
   const request = () => {
@@ -21,28 +18,28 @@ const DisplaySearchedItem = ({
   useEffect(() => {
     request();
   }, [item_info.ID]);
-  console.log(item_information);
   if (item_information.gameData.itemInformation) {
     return (
       <div>
-        <Item.Group
-          style={{
-            backgroundColor: 'lightgrey',
-          }}
-        >
+        <Item.Group className="marketboard-item">
           <Item>
             <Item.Image
               size="tiny"
+              className="marketboard-image"
               src={`https://xivapi.com${item_information.gameData.itemInformation.IconHD}`}
             />
             <Item.Content>
-              <Item.Header as="a">
+              <Item.Header
+                as="h4"
+                className="card-content"
+                style={{ color: 'white' }}
+              >
                 {item_information.gameData.itemInformation.Name}
               </Item.Header>
-              <Item.Meta>
+              <Item.Meta style={{ color: 'white' }}>
                 {item_information.gameData.itemInformation.Description}
               </Item.Meta>
-              <Item.Extra>
+              <Item.Extra style={{ color: 'white' }}>
                 {item_information.gameData.itemInformation.ItemUICategory.Name}
               </Item.Extra>
             </Item.Content>
