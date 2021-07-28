@@ -4,6 +4,7 @@ import {
   FETCH_ITEMS,
   FETCH_MARKETABLE_ITEMS,
   FETCH_ITEM_INFO,
+  RESET_GEAR_ACTION,
 } from '../actions/types';
 
 export default function datacenterReducer(state = [], action) {
@@ -19,6 +20,8 @@ export default function datacenterReducer(state = [], action) {
       return { ...state, marketable_items: action.payload };
     case FETCH_ITEM_INFO:
       return { ...state, itemInformation: action.payload };
+    case RESET_GEAR_ACTION:
+      return { ...state, items: (state.items = []) };
     default:
       return state;
   }

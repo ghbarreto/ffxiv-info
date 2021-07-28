@@ -5,6 +5,7 @@ import {
   FETCH_ITEMS,
   FETCH_MARKETABLE_ITEMS,
   FETCH_ITEM_INFO,
+  RESET_GEAR_ACTION,
 } from './types';
 
 export const fetchDatacenter = () => async dispatch => {
@@ -37,4 +38,8 @@ export const fetch_marketable_items = item => async dispatch => {
   );
 
   dispatch({ type: FETCH_MARKETABLE_ITEMS, payload: response.data });
+};
+
+export const reset_gear_action = () => async dispatch => {
+  dispatch({ type: RESET_GEAR_ACTION, payload: [] });
 };

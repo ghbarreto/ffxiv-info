@@ -5,7 +5,6 @@ import { races } from '../../resources/races';
 import { gender } from '../../resources/gender';
 
 const CharacterDetailedInfo = ({ character }) => {
-  console.log(character);
   return (
     <div>
       <div className="free-company-profile">
