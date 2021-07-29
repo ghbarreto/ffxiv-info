@@ -9,7 +9,7 @@ const GetCharacterGear = ({ equip, fetchedItems }) => {
   const request = () => {
     const response = dispatch(items(equip));
   };
-  console.log(fetchedItems);
+  console.log(fetchedItems, "test");
   useEffect(() => {
     request();
     return dispatch(reset_gear_action());
