@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import GetCharacterGear from './GetCharacterGear';
 import { connect } from 'react-redux';
-import { forEach } from 'lodash';
 
 const CharacterGear = ({ gear, fetchedItems }) => {
   const display = () => {
@@ -16,6 +15,7 @@ const CharacterGear = ({ gear, fetchedItems }) => {
   };
 
   const getItems = () => {
+    console.log(gear);
     return Object.values(gear).map(e => <GetCharacterGear equip={e.ID} />);
   };
 
