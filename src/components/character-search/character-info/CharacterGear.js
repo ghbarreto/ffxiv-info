@@ -15,7 +15,7 @@ const CharacterGear = ({ gear, fetchedItems }) => {
   };
 
   const getItems = () => {
-    console.log(gear);
+    // console.log(gear);
     return Object.values(gear).map(e => <GetCharacterGear equip={e.ID} />);
   };
 

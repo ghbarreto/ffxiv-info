@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { items, reset_gear_action } from '../../../actions';
 import { bindActionCreators } from 'redux';

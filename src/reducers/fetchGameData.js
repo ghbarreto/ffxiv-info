@@ -15,7 +15,7 @@ export default function datacenterReducer(state = [], action) {
       return { ...state, title: action.payload };
     case FETCH_ITEMS:
       const { Name, IconHD } = action.payload;
-      console.log(action.payload);
+      // console.log(action.payload);
       return { ...state, items: { ...state.items, [Name]: IconHD } };
     case FETCH_MARKETABLE_ITEMS:
       return { ...state, marketable_items: action.payload };

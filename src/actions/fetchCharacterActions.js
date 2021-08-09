@@ -3,6 +3,9 @@ import { FETCH_CHARACTER, FETCH_INFO } from './types';
 
 // Character Data
 export const fetchCharacter = (name, server) => async dispatch => {
+
+  if (!name) return null
+
   const response = await ffxiv.get(
     `/character/search?name=${name}&server=${server}`
   );
