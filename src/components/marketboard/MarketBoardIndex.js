@@ -3,7 +3,7 @@ import { connect, useDispatch } from 'react-redux';
 
 import { fetch_marketable_items } from '../../actions';
 import Servers from '../game-data/Servers';
-import DisplayMarketBoardItems from './DisplayMarketBoardItems';
+import Table from '../Table';
 import SmallSpinner from './../SmallSpinner';
 
 const MarketBoardIndex = props => {
@@ -21,8 +21,6 @@ const MarketBoardIndex = props => {
     const response = dispatch(fetch_marketable_items(name));
     return response;
   };
-
-  // console.log(all_marketable_items);
 
   useEffect(() => {
     // timer
@@ -59,7 +57,9 @@ const MarketBoardIndex = props => {
       />
 
       {marketable_items ? (
-        <DisplayMarketBoardItems
+        <Table
+          tableHeaderFirst={"Item"}
+          tableHeaderSecond={"Select Item"}
           database_choice={database_choice}
           server_choice={server_choice}
           items={marketable_items.Results}

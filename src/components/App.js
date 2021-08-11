@@ -7,6 +7,7 @@ import CharacterIndex from './character-search/CharacterIndex';
 import CharacterInfo from './character-search/CharacterInfo';
 import MarketBoardIndex from './marketboard/MarketBoardIndex';
 import MarketBoardFetchItems from './marketboard/MarketBoardFetchItems';
+import ServerList from './server-status/ServerList'
 
 // cinza azulado - rgb(17, 35, 51)
 // azul tema - rgb(38, 115, 216)
@@ -23,6 +24,7 @@ const App = () => {
         path="/fetch/:id/:server/:database"
         component={MarketBoardFetchItems}
       />
+      <Route path="/" exact component={ServerList} />
     </Router>
   );
 };

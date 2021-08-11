@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import GetCharacterGear from './GetCharacterGear';
 import { connect } from 'react-redux';
 
@@ -15,8 +15,14 @@ const CharacterGear = ({ gear, fetchedItems }) => {
   };
 
   const getItems = () => {
-    // console.log(gear);
-    return Object.values(gear).map(e => <GetCharacterGear equip={e.ID} />);
+    const objectValues = Object.values(gear)
+
+    const data = {
+      objectValues,
+    }
+
+    return <GetCharacterGear equip={data.objectValues} />
+    // return Object.values(gear).map(e => <GetCharacterGear equip={e.ID} />);
   };
 
   return (

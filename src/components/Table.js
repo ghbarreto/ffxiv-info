@@ -2,8 +2,8 @@ import React from 'react';
 import { Header, Image, Table, Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-const DisplayMarketBoardItems = ({ items, server_choice, database_choice }) => {
-  const displayItems = () => {
+const TableComponent = ({tableHeaderFirst, tableHeaderSecond, items, server_choice, database_choice }) => {
+  const displayMarketBoardItems = () => {
     return Object.values(items).map(item => {
       return (
         <Table.Row>
@@ -26,30 +26,27 @@ const DisplayMarketBoardItems = ({ items, server_choice, database_choice }) => {
       );
     });
   };
-
   return (
-    <div>
-      <Table
-        celled
-        striped
-        collapsing
-        inverted
-        color={'violet'}
-        size="large"
-        padded={true}
-        style={{ margin: '0 auto', width: '80%' }}
-      >
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Item</Table.HeaderCell>
-            <Table.HeaderCell>Select Item</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
+    <Table
+      celled
+      striped
+      collapsing
+      inverted
+      color={'violet'}
+      size="large"
+      padded={true}
+      style={{ margin: '0 auto', width: '80%' }}
+    >
+      <Table.Header>
+        <Table.Row>
+          <Table.HeaderCell>{tableHeaderFirst}</Table.HeaderCell>
+          <Table.HeaderCell>{tableHeaderSecond}</Table.HeaderCell>
+        </Table.Row>
+      </Table.Header>
 
-        <Table.Body>{displayItems()}</Table.Body>
-      </Table>
-    </div>
+      <Table.Body>{displayMarketBoardItems()}</Table.Body>
+    </Table>
   );
 };
 
-export default DisplayMarketBoardItems;
+export default TableComponent

@@ -14,7 +14,6 @@ import Spinner from '../Spinner';
 const CharacterInfoDisplay = ({ info }) => {
   if (info) {
     const { Character } = info;
-    // console.log(Character);
     return (
       <Grid columns={3} divided>
         <Grid.Row divided stretched>
@@ -36,11 +35,11 @@ const CharacterInfoDisplay = ({ info }) => {
             ></CharacterPortrait>
           </Grid.Column>
           <Grid.Column>
-            <Segment>
+            <Segment style={{height: '5vh'}}>
               <div className="title-character-info left-side">Profile Info</div>
               <CharacterDetailedInfo character={Character} />
             </Segment>
-            <Segment style={{ overflow: 'auto' }}>
+            <Segment style={{ overflow: 'auto', height: '5vh' }}>
               <div className="title-character-info left-side">Classes</div>
               <CharacterClasses classes={Character.ClassJobs} />
             </Segment>

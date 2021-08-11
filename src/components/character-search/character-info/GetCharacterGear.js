@@ -7,7 +7,10 @@ import './GetCharacterGear.css';
 const GetCharacterGear = ({ equip }) => {
   const dispatch = useDispatch();
   const request = () => {
-    const response = dispatch(items(equip));
+    Object.values(equip).map(gear => {
+      setTimeout(() => dispatch(items(gear.ID)), 200);
+    });
+    // const response = dispatch(items(equip));
   };
   useEffect(() => {
     request();

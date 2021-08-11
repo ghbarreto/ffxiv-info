@@ -15,14 +15,19 @@ export default function datacenterReducer(state = [], action) {
       return { ...state, title: action.payload };
     case FETCH_ITEMS:
       const { Name, IconHD } = action.payload;
-      // console.log(action.payload);
       return { ...state, items: { ...state.items, [Name]: IconHD } };
     case FETCH_MARKETABLE_ITEMS:
       return { ...state, marketable_items: action.payload };
     case FETCH_ITEM_INFO:
       return { ...state, itemInformation: action.payload };
     case RESET_GEAR_ACTION:
-      return { ...state, items: (state.items = []) };
+      // console.log("dasdasd", state)
+      return {
+        state: []
+        // title: (state.title = []),
+        // itemInformation: (state.itemInformation = []),
+        // items: (state.items = []),
+      };
     default:
       return state;
   }

@@ -43,3 +43,4 @@ export const fetch_marketable_items = item => async dispatch => {
 export const reset_gear_action = () => async dispatch => {
   dispatch({ type: RESET_GEAR_ACTION, payload: [] });
 };
+

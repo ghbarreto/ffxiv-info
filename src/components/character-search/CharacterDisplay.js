@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Image, Grid, Card, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
+import { reset_gear_action } from '../../actions';
 
 const CharacterDisplay = props => {
   const { characterDetails } = props.characterDetails;
+  const dispatch = useDispatch();
+
+  useEffect(() => dispatch(reset_gear_action()), []);
+
   const display = () => {
     if (characterDetails.fetchCharacters) {
       return characterDetails.fetchCharacters.Results.map(e => {

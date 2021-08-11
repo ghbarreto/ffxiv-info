@@ -10,3 +10,5 @@ export const FETCH_MARKETABLE_ITEMS = 'fetch_marketable_items';
 export const RESET_GEAR_ACTION = 'reset_gear_action';
 // marketboard
 export const FETCH_MARKETBOARD_DATA = 'fetch_marketboard_data';
+// server status
+export const SERVER_STATUS = 'server_status';
