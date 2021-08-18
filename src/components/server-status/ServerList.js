@@ -2,18 +2,23 @@ import React, { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { fetchServerStatus } from '../../actions';
 import ServerStatusRender from './ServerStatusRender';
+import { servers, region } from './server';
 
-const ServerList = ({ servers }) => {
-  const dispatch = useDispatch();
-  const request = () => {
-    const response = dispatch(fetchServerStatus());
+// ({servers})
+const ServerList = () => {
+  const serverRegion = region => {
+    return servers
+      .filter(e => e.data_center)
+      .filter(e => e.data_center.region === `${region}`);
   };
 
-  useEffect(() => {
-    request();
-  }, []);
+  const renderAllRegions = () => {
+    return region.map(e => (
+      <ServerStatusRender location={e} servers={serverRegion(e)} />
+    ));
+  };
 
-  return <ServerStatusRender servers={servers} />;
+  return renderAllRegions();
 };
 
 const mapStateToProps = state => {
@@ -23,3 +28,12 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(ServerList);
+
+// const dispatch = useDispatch();
+//   const request = () => {
+//     const response = dispatch(fetchServerStatus());
+//   };
+
+//   useEffect(() => {
+//     request();
+//   }, []);
