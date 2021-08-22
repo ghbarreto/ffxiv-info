@@ -1,24 +1,21 @@
 import React from 'react';
-// e.data_center.map(e => e.data_center.name)
-const ServerDisplayListings = ({ servers, location }) => {
-  // console.log(Object.values(location).filter(e => e.name));
+import Table from '../Table';
 
+const ServerDisplayListings = ({ servers }) => {
   const displayServers = () => {
-    return servers.map(e => {
-      return (
-        <div style={{ display: 'inline-block' }}>
-          <li>{e.name}</li>
-          <li>{e.status}</li>
-          <li>{e.congestion}</li>
-          <li>{e.creation}</li>
-          {/* <li>{e.last_online}</li> */}
-        </div>
-      );
-    });
+    return <Table server_status={servers} />;
   };
+  const displayDatabases = () => {
+    for (let i in servers)
+      return <Table server_name={servers[i].data_center.name} />;
+  };
+
   return (
-    <div>
-      <ul style={{ color: 'white' }}>{displayServers()}</ul>
+    <div
+      style={{ display: 'inline-table', marginTop: '30px', padding: '10px' }}
+    >
+      {displayDatabases()}
+      {displayServers()}
     </div>
   );
 };

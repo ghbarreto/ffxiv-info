@@ -1,16 +1,16 @@
 export const region = ['North America', 'Europe', 'Japan'];
 export const database = [
-  'Elemental',
   'Gaia',
   'Mana',
   'Aether',
+  'Elemental',
   'Primal',
   'Crystal',
   'Chaos',
   'Light',
 ];
 
-export const servers = [
+export const serversStatic = [
   {
     name: 'Cactuar',
     status: 'Online',
