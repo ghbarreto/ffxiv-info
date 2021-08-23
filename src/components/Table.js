@@ -42,7 +42,7 @@ const TableComponent = ({
         style={{
           marginTop: '30px',
           color: 'rgb(38, 115, 216)',
-          marginLeft: '30px',
+          // marginLeft: '30px',
         }}
       >
         <h1>{regions}</h1>

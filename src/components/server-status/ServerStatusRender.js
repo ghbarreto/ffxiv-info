@@ -25,8 +25,12 @@ const ServerStatusRender = ({ servers, location }) => {
 
   return (
     <div>
-      <Table regions={location} />
-      <div>{displayAllServersSeparately()}</div>
+      <div style={{ textAlign: 'center' }}>
+        <Table regions={location} />
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div>{displayAllServersSeparately()}</div>
+      </div>
     </div>
   );
 };
