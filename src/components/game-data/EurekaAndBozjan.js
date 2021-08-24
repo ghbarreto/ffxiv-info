@@ -17,7 +17,7 @@ const EurekaAndBozjan = ({ character, bozjan, eureka }) => {
         >
           Level{' '}
           <div style={{ color: 'rgb(241, 182, 18)', marginLeft: '5px' }}>
-            {level}
+            {level === null ? '0' : level}
           </div>
         </div>
         <div
@@ -30,11 +30,13 @@ const EurekaAndBozjan = ({ character, bozjan, eureka }) => {
         >
           Exp
           <div style={{ color: 'rgb(241, 182, 18)', marginLeft: '5px' }}>
-            <NumberFormat
-              value={exp}
-              thousandSeparator={true}
-              displayType={'text'}
-            />
+            {exp === null ? '0' : (
+              <NumberFormat
+                value={exp}
+                thousandSeparator={true}
+                displayType={'text'}
+              />
+            )}
           </div>
         </div>
       </>

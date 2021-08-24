@@ -27,7 +27,7 @@ const CharacterDisplay = props => {
                   <Card.Description>
                     <Link to={`/characters/${e.ID}`}>
                       <Button fluid content="Primary">
-                        More
+                        Details
                       </Button>
                     </Link>
                   </Card.Description>

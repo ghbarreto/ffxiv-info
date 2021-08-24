@@ -2,6 +2,7 @@ import React from 'react';
 import { Header, Image, Table, Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { server_information } from './resources/server_information';
+import { colorPicker } from './resources/utils/colorPicker'
 import DisplayAlert from './DisplayAlert';
 
 const TableComponent = ({
@@ -110,12 +111,11 @@ const TableComponent = ({
       });
     }
   };
-
   const displayTableCellForServers = (value, needsFunctionCall) => {
     return (
       <Table.Cell>
         <Header as="h5">
-          <Header.Content style={{ color: 'white' }}>
+          <Header.Content style={{ color: colorPicker(value) }}>
             {needsFunctionCall ? value : server_information(value)}
           </Header.Content>
         </Header>

@@ -28,6 +28,7 @@ export const items = item => async dispatch => {
   dispatch({ type: FETCH_ITEMS, payload: response.data });
 };
 
+
 export const fetchItemInfo = item => async dispatch => {
   const response = await ffxiv.get(`/item/${item}`);
 

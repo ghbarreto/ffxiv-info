@@ -23,15 +23,14 @@ const CharacterProfile = ({
       <div className="right-flex">
         <div className="profile-name">{profileName}</div>
         <div className="profile-title">
-          {profileTitle ? <CharacterTitle title={profileTitle} /> : null}
+          {profileTitle ? <CharacterTitle title={profileTitle} /> : ''}
         </div>
         <div className="free-company">
-          FC -{' '}
           <Link
             style={{ color: 'rgb(241, 182, 18)' }}
             to={`/free-company/${freeCompanyID}`}
           >
-            {profileFreeCompany}
+            {profileFreeCompany ? profileFreeCompany : ''}
           </Link>
         </div>
         {/* <div className="profile-town">{cityIds(profileTown)}</div> */}

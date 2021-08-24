@@ -42,9 +42,6 @@ export const server_information = id => {
         <img
           alt="Online"
           src="https://img.finalfantasyxiv.com/lds/h/n/mAQB-FYQrpB0HHsvSNCMTwsBtw.svg"
-          style={{
-            color: 'limegreen',
-          }}
         />
       );
     case 'Available':
