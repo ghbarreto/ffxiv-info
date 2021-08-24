@@ -6,6 +6,8 @@ import {
   FETCH_MARKETABLE_ITEMS,
   FETCH_ITEM_INFO,
   RESET_GEAR_ACTION,
+  FETCH_FREE_COMPANY,
+  FETCH_FREE_COMPANY_INFO,
 } from './types';
 
 export const fetchDatacenter = () => async dispatch => {
@@ -40,7 +42,20 @@ export const fetch_marketable_items = item => async dispatch => {
   dispatch({ type: FETCH_MARKETABLE_ITEMS, payload: response.data });
 };
 
+export const fetch_free_company = (name, server) => async dispatch => {
+  const response = await ffxiv.get(
+    `/freecompany/search?name=${name}&server=${server}`
+  );
+
+  dispatch({ type: FETCH_FREE_COMPANY, payload: response.data });
+};
+
+export const fetch_free_company_info = id => async dispatch => {
+  const response = await ffxiv.get(`/freecompany/${id}?data=FCM`);
+
+  dispatch({ type: FETCH_FREE_COMPANY_INFO, payload: response.data });
+};
+
 export const reset_gear_action = () => async dispatch => {
   dispatch({ type: RESET_GEAR_ACTION, payload: [] });
 };
-

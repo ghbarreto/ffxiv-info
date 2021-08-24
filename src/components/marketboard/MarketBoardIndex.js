@@ -58,8 +58,8 @@ const MarketBoardIndex = props => {
 
       {marketable_items ? (
         <Table
-          tableHeaderFirst={"Item"}
-          tableHeaderSecond={"Select Item"}
+          tableHeaderFirst={'Item'}
+          tableHeaderSecond={'Select Item'}
           database_choice={database_choice}
           server_choice={server_choice}
           items={marketable_items.Results}

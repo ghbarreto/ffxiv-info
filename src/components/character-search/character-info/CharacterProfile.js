@@ -1,6 +1,7 @@
 import React from 'react';
 import './CharacterProfile.css';
 import { classJobs } from '../../resources/classJobs';
+import { Link } from 'react-router-dom';
 
 import CharacterTitle from './CharacterTitle';
 
@@ -12,7 +13,6 @@ const CharacterProfile = ({
   server,
   profileAvatar,
   profileTitle,
-  profileTown,
   activeClass,
 }) => {
   return (
@@ -27,10 +27,12 @@ const CharacterProfile = ({
         </div>
         <div className="free-company">
           FC -{' '}
-          <a style={{ color: 'rgb(241, 182, 18)' }} href={freeCompanyID}>
+          <Link
+            style={{ color: 'rgb(241, 182, 18)' }}
+            to={`/free-company/${freeCompanyID}`}
+          >
             {profileFreeCompany}
-          </a>{' '}
-          AJUSTAR LINK
+          </Link>
         </div>
         {/* <div className="profile-town">{cityIds(profileTown)}</div> */}
         <div className="datacenter">

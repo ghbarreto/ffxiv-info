@@ -2,8 +2,10 @@ import React from 'react';
 import { Header, Image, Table, Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { server_information } from './resources/server_information';
+import DisplayAlert from './DisplayAlert';
 
 const TableComponent = ({
+  id,
   tableHeaderFirst,
   tableHeaderSecond,
   items,
@@ -16,7 +18,7 @@ const TableComponent = ({
   const tableSize = server_status ? 'tiny' : 'large';
   const isDisplayingServers = server_name || regions || server_status;
   const colorSet = isDisplayingServers ? 'grey' : 'violet';
-  const isCelled = isDisplayingServers ? '' : 'celled';
+  const isCelled = isDisplayingServers ? false : true;
 
   const displayServerNames = () => {
     return server_name ? (
@@ -52,16 +54,46 @@ const TableComponent = ({
     );
   };
 
-  const displayLastTimeUpdated = () => {
-    if (server_status) {
-      for (let i in server_status) {
+  const displayFreeCompanyValues = () => {
+    if (id === 'freeCompany') {
+      return Object.values(items).map(item => {
         return (
-          <h7 style={{ color: ' rgb(241, 182, 18)' }}>
-            {server_status[i].last_online}
-          </h7>
+          <Table.Row>
+            <Table.Cell>
+              <Header as="h4" image style={{ position: 'relative' }}>
+                {item.Crest.map(e => (
+                  <Image
+                    src={e}
+                    style={{
+                      position: 'absolute',
+                      zIndex: { e },
+                      top: '-10px',
+                    }}
+                  />
+                ))}
+                <Header.Content style={{ color: 'white', marginLeft: '40px' }}>
+                  {item.Name}
+                </Header.Content>
+              </Header>
+            </Table.Cell>
+            <Table.Cell>
+              <Link to={`/free-company/${item.ID}`}>
+                <Button
+                  float=""
+                  icon
+                  labelPosition="left"
+                  secondary
+                  size="small"
+                >
+                  <Icon name="arrow right" /> Details
+                </Button>
+              </Link>
+            </Table.Cell>
+          </Table.Row>
         );
-      }
+      });
     }
+    return null;
   };
 
   const displayServers = () => {
@@ -103,7 +135,8 @@ const TableComponent = ({
   };
 
   const displayMarketBoardItems = () => {
-    if (items) {
+    if (!server_choice || !database_choice) return;
+    if (items && database_choice) {
       return Object.values(items).map(item => {
         return (
           <Table.Row>
@@ -116,7 +149,12 @@ const TableComponent = ({
               </Header>
             </Table.Cell>
             <Table.Cell>
-              <Link to={`/fetch/${item.ID}${server_choice}${database_choice}`}>
+              <Link
+                to={
+                  `/fetch/${item.ID}${server_choice || ''}${database_choice}` ||
+                  ''
+                }
+              >
                 <Button
                   float=""
                   icon
@@ -134,6 +172,7 @@ const TableComponent = ({
     }
     return '';
   };
+
   return (
     <div>
       {/* <div>{displayLastTimeUpdated()}</div> */}
@@ -152,9 +191,22 @@ const TableComponent = ({
         {displayHeaders()}
         <Table.Body>{displayServers()}</Table.Body>
         <Table.Body>{displayMarketBoardItems()}</Table.Body>
+        <Table.Body>{displayFreeCompanyValues()}</Table.Body>
       </Table>
     </div>
   );
 };
 
 export default TableComponent;
+
+// const displayLastTimeUpdated = () => {
+//   if (server_status) {
+//     for (let i in server_status) {
+//       return (
+//         <h7 style={{ color: ' rgb(241, 182, 18)' }}>
+//           {server_status[i].last_online}
+//         </h7>
+//       );
+//     }
+//   }
+// };

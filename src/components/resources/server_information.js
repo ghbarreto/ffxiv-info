@@ -24,15 +24,26 @@ export const server_information = id => {
           style={{ height: '20px', width: '20px', color: 'red' }}
         />
       );
+
+    case 'Maintenance':
+      return (
+        <img
+          alt="maintenance"
+          src="https://img.finalfantasyxiv.com/lds/h/i/kfWHAYnuku9yWcGK1UqHRqlvLo.svg"
+          style={{
+            height: '20px',
+            width: '20px',
+            filter: 'sepia() saturate(20000%) hue-rotate(30deg)',
+          }}
+        />
+      );
     case 'Preferred':
       return (
         <img
           alt="Online"
           src="https://img.finalfantasyxiv.com/lds/h/n/mAQB-FYQrpB0HHsvSNCMTwsBtw.svg"
           style={{
-            height: '20px',
-            width: '20px',
-            filter: 'sepia() saturate(20000%) hue-rotate(30deg)',
+            color: 'limegreen',
           }}
         />
       );

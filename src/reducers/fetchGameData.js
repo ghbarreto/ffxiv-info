@@ -5,6 +5,8 @@ import {
   FETCH_MARKETABLE_ITEMS,
   FETCH_ITEM_INFO,
   RESET_GEAR_ACTION,
+  FETCH_FREE_COMPANY,
+  FETCH_FREE_COMPANY_INFO,
 } from '../actions/types';
 
 export default function datacenterReducer(state = [], action) {
@@ -20,10 +22,13 @@ export default function datacenterReducer(state = [], action) {
       return { ...state, marketable_items: action.payload };
     case FETCH_ITEM_INFO:
       return { ...state, itemInformation: action.payload };
+    case FETCH_FREE_COMPANY:
+      return { ...state, free_company: action.payload };
+    case FETCH_FREE_COMPANY_INFO:
+      return { ...state, free_company_info: action.payload };
     case RESET_GEAR_ACTION:
-      // console.log("dasdasd", state)
       return {
-        state: []
+        state: [],
         // title: (state.title = []),
         // itemInformation: (state.itemInformation = []),
         // items: (state.items = []),

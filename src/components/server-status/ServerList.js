@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { fetchServerStatus } from '../../actions';
 import ServerStatusRender from './ServerStatusRender';
-import { region, database, serversStatic } from './server';
+import { region, serversStatic } from './server';
 
 // ({servers})
 const ServerList = ({ servers }) => {

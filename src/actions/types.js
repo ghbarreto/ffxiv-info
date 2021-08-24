@@ -8,6 +8,8 @@ export const FETCH_ITEM_INFO = 'fetch_item_info';
 export const FETCH_ITEMS = 'fetch_items';
 export const FETCH_MARKETABLE_ITEMS = 'fetch_marketable_items';
 export const RESET_GEAR_ACTION = 'reset_gear_action';
+export const FETCH_FREE_COMPANY = 'fetch_free_company';
+export const FETCH_FREE_COMPANY_INFO = 'fetch_free_company_info';
 // marketboard
 export const FETCH_MARKETBOARD_DATA = 'fetch_marketboard_data';
 // server status
