@@ -30,7 +30,7 @@
   margin-top: 55px;
   color:white;
   margin-left: 20px;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .profile-title{
@@ -44,7 +44,8 @@
 
 .datacenter{
   color:white;
-  font-size: 15px;
+  margin-top: 5px;
+  font-size: 20px;
   margin-left: 20px
 }
 
@@ -57,7 +58,8 @@ img.classImageProfile{
 div.level{
   display: inline-block;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 25px;
+  padding: 5px;
   margin-left: 5px;
   color: rgb(241, 182, 18);
   margin-bottom: 10px;

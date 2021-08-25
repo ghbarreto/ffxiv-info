@@ -19,7 +19,7 @@ const CharacterTitle = ({ title, propsTitle }) => {
     request();
   }, [title]);
 
-  return <div>{propsTitle > 0 ? `<- ${propsTitle.Name} ->` : ''}</div>;
+  return <div>{propsTitle ? `<- ${propsTitle.Name} ->` : ''}</div>;
 };
 
 const mapStateToProps = state => {

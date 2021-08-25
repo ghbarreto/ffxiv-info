@@ -7,6 +7,9 @@ import {
   RESET_GEAR_ACTION,
   FETCH_FREE_COMPANY,
   FETCH_FREE_COMPANY_INFO,
+  FETCH_GRAND_COMPANY_NAME,
+  FETCH_GRAND_COMPANY_RANK,
+  FETCH_GRAND_COMPANY_RANK_NAME,
 } from '../actions/types';
 
 export default function datacenterReducer(state = [], action) {
@@ -26,6 +29,12 @@ export default function datacenterReducer(state = [], action) {
       return { ...state, free_company: action.payload };
     case FETCH_FREE_COMPANY_INFO:
       return { ...state, free_company_info: action.payload };
+    case FETCH_GRAND_COMPANY_NAME:
+      return { ...state, grand_company: action.payload };
+    case FETCH_GRAND_COMPANY_RANK:
+      return { ...state, grand_company_rank: action.payload };
+    case FETCH_GRAND_COMPANY_RANK_NAME:
+      return { ...state, grand_company_rank_name: action.payload };
     case RESET_GEAR_ACTION:
       return {
         state: [],

@@ -8,6 +8,9 @@ import {
   RESET_GEAR_ACTION,
   FETCH_FREE_COMPANY,
   FETCH_FREE_COMPANY_INFO,
+  FETCH_GRAND_COMPANY_NAME,
+  FETCH_GRAND_COMPANY_RANK,
+  FETCH_GRAND_COMPANY_RANK_NAME,
 } from './types';
 
 export const fetchDatacenter = () => async dispatch => {
@@ -27,7 +30,6 @@ export const items = item => async dispatch => {
 
   dispatch({ type: FETCH_ITEMS, payload: response.data });
 };
-
 
 export const fetchItemInfo = item => async dispatch => {
   const response = await ffxiv.get(`/item/${item}`);
@@ -55,6 +57,24 @@ export const fetch_free_company_info = id => async dispatch => {
   const response = await ffxiv.get(`/freecompany/${id}?data=FCM`);
 
   dispatch({ type: FETCH_FREE_COMPANY_INFO, payload: response.data });
+};
+
+export const fetch_grand_company_name = () => async dispatch => {
+  const response = await ffxiv.get(`/GrandCompany`);
+
+  dispatch({ type: FETCH_GRAND_COMPANY_NAME, payload: response.data });
+};
+
+export const fetch_grand_company_rank = id => async dispatch => {
+  const response = await ffxiv.get(`/GrandCompanyRank/${id}`);
+
+  dispatch({ type: FETCH_GRAND_COMPANY_RANK, payload: response.data });
+};
+
+export const fetch_grand_company_rank_name = url => async dispatch => {
+  const response = await ffxiv.get(`${url}`);
+
+  dispatch({ type: FETCH_GRAND_COMPANY_RANK_NAME, payload: response.data });
 };
 
 export const reset_gear_action = () => async dispatch => {

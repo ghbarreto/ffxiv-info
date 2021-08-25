@@ -10,6 +10,9 @@ export const FETCH_MARKETABLE_ITEMS = 'fetch_marketable_items';
 export const RESET_GEAR_ACTION = 'reset_gear_action';
 export const FETCH_FREE_COMPANY = 'fetch_free_company';
 export const FETCH_FREE_COMPANY_INFO = 'fetch_free_company_info';
+export const FETCH_GRAND_COMPANY_NAME = 'fetch_grand_company_name';
+export const FETCH_GRAND_COMPANY_RANK = 'fetch_grand_company_rank';
+export const FETCH_GRAND_COMPANY_RANK_NAME = 'fetch_grand_company_rank_name';
 // marketboard
 export const FETCH_MARKETBOARD_DATA = 'fetch_marketboard_data';
 // server status
