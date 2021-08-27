@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
-import { Button, Divider, Image, Transition, Message } from 'semantic-ui-react';
+import { Transition, Message } from 'semantic-ui-react';
 
 const DisplayAlert = ({ negative, positive, messageHeader, message }) => {
   const [visible, setVisibility] = useState(false);
