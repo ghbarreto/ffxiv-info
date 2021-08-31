@@ -17,6 +17,7 @@ const DisplayAlert = ({ negative, positive, messageHeader, message }) => {
       setVisibility(true);
     };
   }, []);
+  // commit
 
   return (
     <div style={{ width: '25%', margin: '0 auto', marginBottom: '20px' }}>
