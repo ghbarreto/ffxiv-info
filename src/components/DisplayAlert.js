@@ -17,7 +17,7 @@ const DisplayAlert = ({ negative, positive, messageHeader, message }) => {
       setVisibility(true);
     };
   }, []);
-  // test 2
+
   return (
     <div style={{ width: '25%', margin: '0 auto', marginBottom: '20px' }}>
       <Transition visible={visible} animation="scale" duration={500}>

@@ -5,11 +5,14 @@ import { fetchCharacter } from '../../actions';
 import CharacterDisplay from './CharacterDisplay';
 import Servers from '../game-data/Servers';
 
+import Spinner from '../Spinner';
+
 const CharacterIndex = () => {
   const dispatch = useDispatch();
   // const characterDetails = fetchCharacters;
   const [name, setName] = useState('');
   const [server, setServer] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const request = () => {
     const response = dispatch(fetchCharacter(name, server));
@@ -20,8 +23,12 @@ const CharacterIndex = () => {
     // timer
     const timer = setTimeout(() => {
       request();
+      setLoading(true);
     }, 600);
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      setLoading(false);
+    };
   }, [name, server]);
 
   const inputValue = e => {

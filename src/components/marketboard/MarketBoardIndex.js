@@ -5,6 +5,7 @@ import { fetch_marketable_items } from '../../actions';
 import Servers from '../game-data/Servers';
 import Table from '../Table';
 import SmallSpinner from './../SmallSpinner';
+import DisplayAlert from '../DisplayAlert';
 
 const MarketBoardIndex = props => {
   const [name, setName] = useState('');
@@ -16,7 +17,6 @@ const MarketBoardIndex = props => {
   const server_choice = server ? `/${server}` : '/null';
 
   const dispatch = useDispatch();
-  // const characterDetails = fetchCharacters;
   const request = () => {
     const response = dispatch(fetch_marketable_items(name));
     return response;

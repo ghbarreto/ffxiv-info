@@ -8,7 +8,9 @@ const CharacterDisplay = props => {
   const { characterDetails } = props.characterDetails;
   const dispatch = useDispatch();
 
-  useEffect(() => dispatch(reset_gear_action()), []);
+  useEffect(() => {
+    return () => dispatch(reset_gear_action());
+  }, []);
 
   const display = () => {
     if (characterDetails.fetchCharacters) {
@@ -38,7 +40,6 @@ const CharacterDisplay = props => {
         );
       });
     }
-    return null;
   };
 
   return (

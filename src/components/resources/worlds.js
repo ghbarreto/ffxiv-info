@@ -427,6 +427,6 @@ export const worlds = id => {
     case 1179:
       return 'HuPoYuan';
     default:
-      return null;
+      return 'Not registered';
   }
 };

@@ -17,7 +17,7 @@ const GrandCompanyDisplay = ({ id, company_name }) => {
   }, [id]);
 
   const displayCompanyName = () => {
-    if (company_name) {
+    if (company_name && id !== null) {
       return Object.values(company_name.Results).map(e => {
         if (e.ID === id.NameID)
           return (

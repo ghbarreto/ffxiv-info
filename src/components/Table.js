@@ -1,8 +1,8 @@
-import React from 'react';
-import { Header, Image, Table, Button, Icon } from 'semantic-ui-react';
+import React, { useState } from 'react';
+import { Header, Image, Table, Button, Icon, Tab } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { server_information } from './resources/server_information';
-import { colorPicker } from './resources/utils/colorPicker'
+import { colorPicker } from './resources/utils/colorPicker';
 import DisplayAlert from './DisplayAlert';
 
 const TableComponent = ({
@@ -16,10 +16,13 @@ const TableComponent = ({
   server_status,
   server_name,
 }) => {
+  let serverOrDatabase = false;
   const tableSize = server_status ? 'tiny' : 'large';
   const isDisplayingServers = server_name || regions || server_status;
   const colorSet = isDisplayingServers ? 'grey' : 'violet';
   const isCelled = isDisplayingServers ? false : true;
+  const serverOrDatabaseExists =
+    database_choice !== '/null' || server_choice !== '/null';
 
   const displayServerNames = () => {
     return server_name ? (
@@ -135,8 +138,7 @@ const TableComponent = ({
   };
 
   const displayMarketBoardItems = () => {
-    if (!server_choice || !database_choice) return;
-    if (items && database_choice) {
+    if (items) {
       return Object.values(items).map(item => {
         return (
           <Table.Row>
@@ -170,14 +172,21 @@ const TableComponent = ({
         );
       });
     }
-    return '';
   };
 
   return (
     <div>
-      {/* <div>{displayLastTimeUpdated()}</div> */}
       <div>{displayRegions()}</div>
-      {displayServerNames()}
+      {!serverOrDatabaseExists ? (
+        <DisplayAlert
+          positive
+          messageHeader={'Dont forget!'}
+          message={'Please Select a Server or a Database'}
+        />
+      ) : (
+        ''
+      )}
+      <div>{displayServerNames()}</div>
       <Table
         celled={isCelled}
         striped
@@ -189,6 +198,7 @@ const TableComponent = ({
         style={{ margin: '0 auto', width: '80%' }}
       >
         {displayHeaders()}
+
         <Table.Body>{displayServers()}</Table.Body>
         <Table.Body>{displayMarketBoardItems()}</Table.Body>
         <Table.Body>{displayFreeCompanyValues()}</Table.Body>
