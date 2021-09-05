@@ -12,7 +12,6 @@ const GrandCompanyDisplay = ({ id, company_name }) => {
   };
 
   useEffect(() => {
-    // timer
     request();
   }, [id]);
 
